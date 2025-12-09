@@ -31,24 +31,24 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-32 bg-secondary/30">
+    <section id="contact" className="py-20 lg:py-32 bg-secondary/30" aria-labelledby="contact-heading">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+        <header className="text-center max-w-3xl mx-auto mb-16">
+          <h2 id="contact-heading" className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Get in Touch
           </h2>
           <p className="text-lg text-muted-foreground">
             Ready to transform your business with AI automation? Let's talk!
           </p>
-        </div>
+        </header>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
           {/* Contact Info */}
-          <div className="space-y-8">
+          <address className="space-y-8 not-italic">
             {/* Email */}
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                 <Mail className="h-5 w-5 text-primary" />
               </div>
               <div>
@@ -56,6 +56,7 @@ const Contact = () => {
                 <a
                   href="mailto:makgolotlou@gmail.com"
                   className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="Send email to makgolotlou@gmail.com"
                 >
                   makgolotlou@gmail.com
                 </a>
@@ -64,7 +65,7 @@ const Contact = () => {
 
             {/* Phone */}
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                 <Phone className="h-5 w-5 text-primary" />
               </div>
               <div>
@@ -72,6 +73,7 @@ const Contact = () => {
                 <a
                   href="tel:+27664592527"
                   className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="Call 066 459 2527"
                 >
                   066 459 2527
                 </a>
@@ -80,7 +82,7 @@ const Contact = () => {
 
             {/* Location */}
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                 <MapPin className="h-5 w-5 text-primary" />
               </div>
               <div>
@@ -95,11 +97,12 @@ const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-[#25D366] text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-[#20BD5A] transition-colors"
+              aria-label="Contact us on WhatsApp"
             >
-              <MessageCircle className="h-5 w-5" />
+              <MessageCircle className="h-5 w-5" aria-hidden="true" />
               Contact us on WhatsApp
             </a>
-          </div>
+          </address>
 
           {/* Contact Form */}
           <div className="bg-card rounded-xl p-6 lg:p-8 shadow-card border border-border/50">
@@ -110,10 +113,11 @@ const Contact = () => {
               Fill out the form below and we'll get back to you as soon as possible
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4" aria-label="Contact form">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">
-                  Name <span className="text-primary">*</span>
+                  Name <span className="text-primary" aria-hidden="true">*</span>
+                  <span className="sr-only">(required)</span>
                 </label>
                 <Input
                   id="name"
@@ -121,13 +125,15 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  autoComplete="name"
                   className="bg-background"
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">
-                  Email <span className="text-primary">*</span>
+                  Email <span className="text-primary" aria-hidden="true">*</span>
+                  <span className="sr-only">(required)</span>
                 </label>
                 <Input
                   id="email"
@@ -136,6 +142,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  autoComplete="email"
                   className="bg-background"
                 />
               </div>
@@ -150,13 +157,15 @@ const Contact = () => {
                   type="tel"
                   value={formData.phone}
                   onChange={handleChange}
+                  autoComplete="tel"
                   className="bg-background"
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5">
-                  Message <span className="text-primary">*</span>
+                  Message <span className="text-primary" aria-hidden="true">*</span>
+                  <span className="sr-only">(required)</span>
                 </label>
                 <Textarea
                   id="message"
