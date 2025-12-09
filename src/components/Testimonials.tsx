@@ -1,44 +1,135 @@
-import { useState } from "react";
 import { cn } from "@/lib/utils";
-
-const categories = ["AI Chatbots", "AI Receptionist", "Lead Generation", "Custom Automation"];
 
 const testimonials = [
   {
     quote: "The AI chatbot transformed our customer support. We now handle 3x more inquiries with faster response times.",
     author: "Sarah M.",
     company: "TechStart Solutions",
-    category: "AI Chatbots",
   },
   {
     quote: "Our website engagement increased by 40% after implementing ClientStream's chatbot. Highly recommend!",
     author: "David K.",
     company: "GrowthHub Agency",
-    category: "AI Chatbots",
   },
   {
     quote: "The AI receptionist has been a game-changer. We never miss a call now and our booking rate has doubled.",
     author: "Michelle R.",
     company: "Premier Dental Clinic",
-    category: "AI Receptionist",
   },
   {
     quote: "Lead generation is now completely automated. We're getting 50% more qualified leads every month.",
     author: "James L.",
     company: "InnovateTech",
-    category: "Lead Generation",
+  },
+  {
+    quote: "Incredible ROI! The chatbot paid for itself within the first month of implementation.",
+    author: "Amanda T.",
+    company: "Sunrise Marketing",
+  },
+  {
+    quote: "Our response time went from hours to seconds. Customers love the instant support.",
+    author: "Robert C.",
+    company: "FastTrack Logistics",
+  },
+  {
+    quote: "The AI handles 80% of our inquiries automatically. Our team can focus on complex issues now.",
+    author: "Jennifer W.",
+    company: "CloudNine Tech",
+  },
+  {
+    quote: "Best investment we made this year. Customer satisfaction scores are through the roof.",
+    author: "Michael B.",
+    company: "Elite Consulting",
+  },
+  {
+    quote: "We scaled our support without hiring more staff. The AI is like having 10 extra employees.",
+    author: "Lisa H.",
+    company: "Digital Dynamics",
+  },
+  {
+    quote: "The lead qualification feature alone has saved us countless hours of manual work.",
+    author: "Thomas P.",
+    company: "Venture Labs",
+  },
+  {
+    quote: "Our conversion rate jumped 35% after adding the AI chatbot to our landing pages.",
+    author: "Emily R.",
+    company: "ConvertPro Agency",
+  },
+  {
+    quote: "24/7 availability means we never lose a potential customer. Absolutely essential for our business.",
+    author: "Chris D.",
+    company: "NightOwl Services",
+  },
+  {
+    quote: "The natural language processing is impressive. Customers often don't realize they're chatting with AI.",
+    author: "Sophia G.",
+    company: "TalkSmart Inc.",
+  },
+  {
+    quote: "Setup was seamless and the support team was incredibly helpful throughout the process.",
+    author: "Andrew M.",
+    company: "QuickStart Ventures",
+  },
+  {
+    quote: "We've reduced our support costs by 60% while improving response quality. Win-win!",
+    author: "Rachel S.",
+    company: "BudgetWise Solutions",
+  },
+  {
+    quote: "The analytics dashboard gives us insights we never had before about customer needs.",
+    author: "Kevin L.",
+    company: "DataDriven Co.",
+  },
+  {
+    quote: "Multilingual support opened up new markets for us. Revenue is up 45% this quarter.",
+    author: "Maria F.",
+    company: "GlobalReach Exports",
+  },
+  {
+    quote: "The AI receptionist handles appointments perfectly. No more scheduling conflicts.",
+    author: "Daniel N.",
+    company: "Wellness Center Pro",
+  },
+  {
+    quote: "Our sales team now only talks to qualified leads. Productivity has never been higher.",
+    author: "Jessica A.",
+    company: "SalesForce Elite",
+  },
+  {
+    quote: "Customer complaints dropped 70% since implementing the AI support system.",
+    author: "Brian K.",
+    company: "HappyCustomer Inc.",
+  },
+  {
+    quote: "The integration with our CRM was flawless. All data syncs automatically.",
+    author: "Natalie J.",
+    company: "SyncWell Systems",
+  },
+  {
+    quote: "We went from 2-hour response times to 2 seconds. Game-changing technology.",
+    author: "Steven W.",
+    company: "RapidResponse Co.",
+  },
+  {
+    quote: "The custom automation workflow saved our team 20+ hours per week.",
+    author: "Laura B.",
+    company: "TimeWise Agency",
+  },
+  {
+    quote: "Our competitors are still using forms while we're converting with AI. Huge advantage.",
+    author: "Mark T.",
+    company: "EdgeTech Solutions",
   },
 ];
 
 const Testimonials = () => {
-  const [activeCategory, setActiveCategory] = useState("AI Chatbots");
-
-  const filteredTestimonials = testimonials.filter(
-    (t) => t.category === activeCategory
-  );
+  // Split testimonials into two rows
+  const firstRow = testimonials.slice(0, 12);
+  const secondRow = testimonials.slice(12);
 
   return (
-    <section className="py-20 lg:py-32 bg-secondary/30">
+    <section className="py-20 lg:py-32 bg-secondary/30 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
@@ -49,41 +140,42 @@ const Testimonials = () => {
             Real results from businesses using our AI solutions
           </p>
         </div>
+      </div>
 
-        {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={cn(
-                "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
-                activeCategory === category
-                  ? "bg-primary text-primary-foreground shadow-button"
-                  : "bg-card text-muted-foreground hover:bg-muted border border-border/50"
-              )}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
-          {filteredTestimonials.map((testimonial, index) => (
+      {/* First Row - Scrolling Left */}
+      <div className="relative mb-6">
+        <div className="flex animate-scroll-left">
+          {[...firstRow, ...firstRow].map((testimonial, index) => (
             <div
               key={index}
-              className="bg-card rounded-xl p-6 lg:p-8 shadow-card border border-border/50"
+              className="flex-shrink-0 w-[350px] mx-3 bg-card rounded-xl p-6 shadow-card border border-border/50"
             >
-              {/* Quote */}
-              <blockquote className="text-foreground mb-6 leading-relaxed">
+              <blockquote className="text-foreground mb-4 leading-relaxed text-sm">
                 "{testimonial.quote}"
               </blockquote>
-
-              {/* Author */}
               <div>
-                <p className="font-semibold text-foreground">{testimonial.author}</p>
-                <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                <p className="font-semibold text-foreground text-sm">{testimonial.author}</p>
+                <p className="text-xs text-muted-foreground">{testimonial.company}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Second Row - Scrolling Left (slower) */}
+      <div className="relative">
+        <div className="flex animate-scroll-left-slow">
+          {[...secondRow, ...secondRow].map((testimonial, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-[350px] mx-3 bg-card rounded-xl p-6 shadow-card border border-border/50"
+            >
+              <blockquote className="text-foreground mb-4 leading-relaxed text-sm">
+                "{testimonial.quote}"
+              </blockquote>
+              <div>
+                <p className="font-semibold text-foreground text-sm">{testimonial.author}</p>
+                <p className="text-xs text-muted-foreground">{testimonial.company}</p>
               </div>
             </div>
           ))}

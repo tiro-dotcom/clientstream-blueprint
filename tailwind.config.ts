@@ -96,6 +96,10 @@ export default {
           "0%, 100%": { opacity: "0.4", transform: "translateY(0)" },
           "50%": { opacity: "1", transform: "translateY(8px)" },
         },
+        "scroll-left": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -105,6 +109,8 @@ export default {
         "slide-in-right": "slide-in-right 0.6s ease-out forwards",
         "float": "float 3s ease-in-out infinite",
         "scroll-indicator": "scroll-indicator 2s ease-in-out infinite",
+        "scroll-left": "scroll-left 30s linear infinite",
+        "scroll-left-slow": "scroll-left 45s linear infinite",
       },
     },
   },
