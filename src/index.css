@@ -128,4 +128,8 @@
   .shadow-button {
     box-shadow: var(--shadow-button);
   }
+
+  .shadow-glow {
+    box-shadow: 0 0 20px hsla(187, 85%, 43%, 0.3), 0 0 40px hsla(187, 85%, 43%, 0.15), 0 4px 20px -4px hsla(200, 25%, 20%, 0.1);
+  }
 }

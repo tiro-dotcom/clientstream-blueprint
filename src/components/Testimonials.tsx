@@ -147,8 +147,8 @@ const Testimonials = () => {
         <div className="flex animate-scroll-left">
           {[...firstRow, ...firstRow].map((testimonial, index) => (
             <div
-              key={index}
-              className="flex-shrink-0 w-[350px] mx-3 bg-card rounded-xl p-6 shadow-card border border-border/50"
+            key={index}
+              className="flex-shrink-0 w-[350px] mx-3 bg-card rounded-xl p-6 shadow-glow border border-primary/20"
             >
               <blockquote className="text-foreground mb-4 leading-relaxed text-sm">
                 "{testimonial.quote}"
@@ -167,8 +167,8 @@ const Testimonials = () => {
         <div className="flex animate-scroll-left-slow">
           {[...secondRow, ...secondRow].map((testimonial, index) => (
             <div
-              key={index}
-              className="flex-shrink-0 w-[350px] mx-3 bg-card rounded-xl p-6 shadow-card border border-border/50"
+            key={index}
+              className="flex-shrink-0 w-[350px] mx-3 bg-card rounded-xl p-6 shadow-glow border border-primary/20"
             >
               <blockquote className="text-foreground mb-4 leading-relaxed text-sm">
                 "{testimonial.quote}"
