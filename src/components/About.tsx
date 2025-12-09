@@ -30,27 +30,28 @@ const aboutItems = [
 
 const About = () => {
   return (
-    <section id="about" className="py-20 lg:py-32 bg-background">
+    <section id="about" className="py-20 lg:py-32 bg-background" aria-labelledby="about-heading">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+        <header className="text-center max-w-3xl mx-auto mb-16">
+          <h2 id="about-heading" className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             About Us
           </h2>
           <p className="text-lg text-muted-foreground">
             Pioneering AI automation solutions in South Africa
           </p>
-        </div>
+        </header>
 
         {/* About Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" role="list">
           {aboutItems.map((item) => (
-            <div
+            <article
               key={item.title}
               className="group bg-card rounded-xl p-6 lg:p-8 shadow-card hover:shadow-card-hover transition-all duration-300 border border-border/50"
+              role="listitem"
             >
               {/* Icon */}
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
                 <item.icon className="h-6 w-6 text-primary" />
               </div>
 
@@ -63,7 +64,7 @@ const About = () => {
               <p className="text-muted-foreground leading-relaxed text-sm">
                 {item.description}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </div>
