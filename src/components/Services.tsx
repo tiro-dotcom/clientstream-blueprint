@@ -7,7 +7,7 @@ const services = [
     description: "Deploy intelligent chatbots on your website, WhatsApp, Instagram, and Facebook to engage customers 24/7 and drive conversions.",
     features: ["24/7 availability", "Multi-platform support", "Natural conversations"],
     hasVideo: true,
-    videoSrc: undefined,
+    videoSrc: "/videos/ai-chatbots.mp4",
   },
   {
     icon: Phone,
