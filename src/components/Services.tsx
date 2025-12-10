@@ -7,6 +7,7 @@ const services = [
     description: "Deploy intelligent chatbots on your website, WhatsApp, Instagram, and Facebook to engage customers 24/7 and drive conversions.",
     features: ["24/7 availability", "Multi-platform support", "Natural conversations"],
     hasVideo: true,
+    videoSrc: undefined,
   },
   {
     icon: Phone,
@@ -14,6 +15,7 @@ const services = [
     description: "Automate customer inquiries, bookings, and support with AI-powered receptionists that never miss a call or message.",
     features: ["Call handling", "Appointment booking", "Customer support"],
     hasVideo: true,
+    videoSrc: undefined,
   },
   {
     icon: Users,
@@ -21,6 +23,7 @@ const services = [
     description: "Consistently attract and qualify new clients with automated lead generation systems powered by AI.",
     features: ["Automated prospecting", "Lead qualification", "Pipeline management"],
     hasVideo: true,
+    videoSrc: "/videos/ai-lead-gen.mp4",
   },
   {
     icon: Cog,
@@ -28,6 +31,7 @@ const services = [
     description: "Eliminate repetitive tasks and streamline operations with intelligent automation that saves time and reduces errors.",
     features: ["Task automation", "Workflow optimization", "Time savings"],
     hasVideo: false,
+    videoSrc: undefined,
   },
 ];
 
@@ -68,15 +72,31 @@ const Services = () => {
                 {service.description}
               </p>
 
-              {/* Video Placeholder */}
+              {/* Video */}
               {service.hasVideo && (
-                <figure className="bg-muted/50 rounded-lg aspect-video mb-6 flex items-center justify-center border border-border/30">
-                  <figcaption className="text-center text-muted-foreground">
-                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-2" aria-hidden="true">
-                      <div className="w-0 h-0 border-t-6 border-t-transparent border-l-8 border-l-primary border-b-6 border-b-transparent ml-1" />
+                <figure className="rounded-lg aspect-video mb-6 overflow-hidden border border-border/30">
+                  {service.videoSrc ? (
+                    <video
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      aria-label={`${service.title} demo video`}
+                    >
+                      <source src={service.videoSrc} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : (
+                    <div className="bg-muted/50 w-full h-full flex items-center justify-center">
+                      <div className="text-center text-muted-foreground">
+                        <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-2" aria-hidden="true">
+                          <div className="w-0 h-0 border-t-6 border-t-transparent border-l-8 border-l-primary border-b-6 border-b-transparent ml-1" />
+                        </div>
+                        <p className="text-sm">Video Demo</p>
+                      </div>
                     </div>
-                    <p className="text-sm">Video Demo</p>
-                  </figcaption>
+                  )}
                 </figure>
               )}
 
