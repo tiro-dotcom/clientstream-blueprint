@@ -15,7 +15,7 @@ const services = [
     description: "Automate customer inquiries, bookings, and support with AI-powered receptionists that never miss a call or message.",
     features: ["Call handling", "Appointment booking", "Customer support"],
     hasVideo: true,
-    videoSrc: undefined,
+    videoSrc: "/videos/ai-receptionists.mp4",
   },
   {
     icon: Users,
