@@ -6,7 +6,7 @@ const benefits = [
     title: "Increased Business Efficiency",
     description: "Streamline operations and boost productivity with AI-powered automation that works around the clock.",
     link: {
-      text: "Read it",
+      text: "Read the study",
       url: "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier",
       label: "McKinsey: AI Productivity Impact",
     },
@@ -16,7 +16,7 @@ const benefits = [
     title: "Higher Client Conversion",
     description: "Convert more leads into customers with intelligent automation that engages prospects at the perfect moment.",
     link: {
-      text: "Read it",
+      text: "Read the study",
       url: "https://www.salesforce.com/resources/research-reports/state-of-the-connected-customer/",
       label: "Salesforce: Customer Engagement Study",
     },
@@ -26,7 +26,7 @@ const benefits = [
     title: "Save Time & Resources",
     description: "Free up your team to focus on high-value tasks while AI handles routine operations seamlessly.",
     link: {
-      text: "Read it",
+      text: "Read the study",
       url: "https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/ai-business-value",
       label: "IBM: AI Business Value Report",
     },
@@ -36,7 +36,7 @@ const benefits = [
     title: "Automate Repetitive Tasks",
     description: "Eliminate manual, time-consuming processes and let AI handle the repetitive work with precision.",
     link: {
-      text: "Read it",
+      text: "Read the study",
       url: "https://www.gartner.com/en/newsroom/press-releases/2023-10-11-gartner-says-more-than-80-percent-of-enterprises-will-have-used-generative-ai-apis-or-deployed-generative-ai-enabled-applications-by-2026",
       label: "Gartner: AI Automation Trends",
     },
@@ -46,7 +46,7 @@ const benefits = [
     title: "Professional & Reliable",
     description: "Count on consistent, error-free service delivery backed by professional support and maintenance.",
     link: {
-      text: "Read it",
+      text: "Read the study",
       url: "https://www.pwc.com/gx/en/issues/data-and-analytics/publications/artificial-intelligence-study.html",
       label: "PwC: AI Global Impact Study",
     },
