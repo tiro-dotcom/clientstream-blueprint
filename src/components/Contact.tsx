@@ -91,17 +91,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* WhatsApp */}
-            <a
-              href="https://wa.me/27664592527"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#25D366] text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-[#20BD5A] transition-colors"
-              aria-label="Contact us on WhatsApp"
-            >
-              <MessageCircle className="h-5 w-5" aria-hidden="true" />
-              Contact us on WhatsApp
-            </a>
           </address>
 
           {/* Contact Form */}
