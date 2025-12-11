@@ -30,8 +30,8 @@ const services = [
     title: "Process Automation",
     description: "Eliminate repetitive tasks and streamline operations with intelligent automation that saves time and reduces errors.",
     features: ["Task automation", "Workflow optimization", "Time savings"],
-    hasVideo: false,
-    videoSrc: undefined,
+    hasVideo: true,
+    videoSrc: "/videos/ai-process-automation.mp4",
   },
 ];
 
