@@ -52,11 +52,13 @@ const Projects = () => {
   return (
     <>
       <Helmet>
-        <title>Our Projects | ClientStream AI Solutions</title>
+        <title>AI Automation Projects & Case Studies | ClientStream</title>
         <meta
           name="description"
-          content="Explore our successful AI implementation projects. See how we've helped businesses automate customer engagement with chatbots, voice agents, and lead generation."
+          content="Explore ClientStream's AI implementation case studies. See real results from chatbots, voice agents, and lead generation systems in Mahikeng, South Africa."
         />
+        <link rel="canonical" href="https://clientstream.co.za/projects" />
+        <meta name="keywords" content="AI case studies, chatbot projects, AI automation results, business automation South Africa, AI implementation Mahikeng" />
       </Helmet>
       <div className="min-h-screen bg-background">
         <Navbar />
@@ -80,35 +82,35 @@ const Projects = () => {
           <section className="py-16 lg:py-24">
             <div className="container mx-auto px-4 lg:px-8">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {projects.map((project, index) => (
-                  <div
+              {projects.map((project, index) => (
+                  <article
                     key={index}
                     className="bg-card rounded-xl p-6 shadow-glow border border-primary/20 hover:border-primary/40 transition-all duration-300"
                   >
                     <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full mb-4">
                       {project.category}
                     </span>
-                    <h3 className="font-display text-xl font-semibold text-foreground mb-2">
+                    <h2 className="font-display text-xl font-semibold text-foreground mb-2">
                       {project.title}
-                    </h3>
+                    </h2>
                     <p className="text-sm text-primary mb-3">{project.client}</p>
                     <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                       {project.description}
                     </p>
                     <div className="space-y-2">
-                      <p className="text-xs font-semibold text-foreground uppercase tracking-wide">
+                      <h3 className="text-xs font-semibold text-foreground uppercase tracking-wide">
                         Results
-                      </p>
+                      </h3>
                       <ul className="space-y-1">
                         {project.results.map((result, idx) => (
                           <li key={idx} className="text-sm text-muted-foreground flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                            <span className="w-1.5 h-1.5 bg-primary rounded-full" aria-hidden="true" />
                             {result}
                           </li>
                         ))}
                       </ul>
                     </div>
-                  </div>
+                  </article>
                 ))}
               </div>
             </div>
