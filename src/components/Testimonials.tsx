@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const testimonials = [
   {
@@ -160,6 +161,8 @@ const StarRating = ({ count }: { count: number }) => (
 );
 
 const Testimonials = () => {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+
   // Split testimonials into two rows
   const firstRow = testimonials.slice(0, 12);
   const secondRow = testimonials.slice(12);
@@ -168,7 +171,10 @@ const Testimonials = () => {
     <section className="py-20 lg:py-32 bg-secondary/30 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div
+          ref={ref}
+          className={`text-center max-w-3xl mx-auto mb-12 scroll-reveal ${isVisible ? 'visible' : ''}`}
+        >
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             What Our Clients Say
           </h2>
