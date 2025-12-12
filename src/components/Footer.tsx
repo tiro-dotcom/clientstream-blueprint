@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Send } from "lucide-react";
 
 const Footer = () => {
@@ -6,13 +7,13 @@ const Footer = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <Send className="h-5 w-5 text-primary" />
             <span className="font-display text-lg font-semibold">
               <span className="text-foreground">Client</span>
               <span className="text-primary">Stream</span>
             </span>
-          </a>
+          </Link>
 
           {/* Copyright */}
           <p className="text-sm text-muted-foreground">
