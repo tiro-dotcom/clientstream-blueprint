@@ -2,11 +2,15 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Contact = () => {
   const { toast } = useToast();
+  const { ref: headerRef, isVisible: headerVisible } = useScrollReveal({ threshold: 0.1 });
+  const { ref: contentRef, isVisible: contentVisible } = useScrollReveal({ threshold: 0.1 });
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -34,7 +38,10 @@ const Contact = () => {
     <section id="contact" className="py-20 lg:py-32 bg-secondary/30" aria-labelledby="contact-heading">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
-        <header className="text-center max-w-3xl mx-auto mb-16">
+        <header
+          ref={headerRef}
+          className={`text-center max-w-3xl mx-auto mb-16 scroll-reveal ${headerVisible ? 'visible' : ''}`}
+        >
           <h2 id="contact-heading" className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Get in Touch
           </h2>
@@ -43,7 +50,10 @@ const Contact = () => {
           </p>
         </header>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
+        <div
+          ref={contentRef}
+          className={`grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto scroll-reveal ${contentVisible ? 'visible' : ''}`}
+        >
           {/* Contact Info */}
           <address className="space-y-8 not-italic">
             {/* Email */}

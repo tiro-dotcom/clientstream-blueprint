@@ -1,4 +1,5 @@
 import { TrendingUp, Target, Clock, Repeat, Shield, ExternalLink } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const benefits = [
   {
@@ -54,11 +55,16 @@ const benefits = [
 ];
 
 const Benefits = () => {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+
   return (
     <section id="benefits" className="py-20 lg:py-32 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div
+          ref={ref}
+          className={`text-center max-w-3xl mx-auto mb-16 scroll-reveal ${isVisible ? 'visible' : ''}`}
+        >
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Why Choose ClientStream
           </h2>
@@ -69,41 +75,50 @@ const Benefits = () => {
 
         {/* Benefits Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {benefits.map((benefit) => (
-            <div
-              key={benefit.title}
-              className="group bg-card rounded-xl p-6 lg:p-8 shadow-card hover:shadow-card-hover transition-all duration-300 border border-border/50"
-            >
-              {/* Icon */}
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <benefit.icon className="h-6 w-6 text-primary" />
-              </div>
-
-              {/* Title */}
-              <h3 className="font-display text-lg lg:text-xl font-semibold text-foreground mb-3">
-                {benefit.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
-                {benefit.description}
-              </p>
-
-              {/* Link */}
-              <a
-                href={benefit.link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:underline"
-              >
-                {benefit.link.text}
-                <ExternalLink className="h-3 w-3" />
-              </a>
-            </div>
+          {benefits.map((benefit, index) => (
+            <BenefitItem key={benefit.title} benefit={benefit} index={index} />
           ))}
         </div>
       </div>
     </section>
+  );
+};
+
+const BenefitItem = ({ benefit, index }: { benefit: typeof benefits[0]; index: number }) => {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+
+  return (
+    <div
+      ref={ref}
+      className={`group bg-card rounded-xl p-6 lg:p-8 shadow-card hover:shadow-card-hover transition-all duration-300 border border-border/50 scroll-reveal-item ${isVisible ? 'visible' : ''}`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      {/* Icon */}
+      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+        <benefit.icon className="h-6 w-6 text-primary" />
+      </div>
+
+      {/* Title */}
+      <h3 className="font-display text-lg lg:text-xl font-semibold text-foreground mb-3">
+        {benefit.title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
+        {benefit.description}
+      </p>
+
+      {/* Link */}
+      <a
+        href={benefit.link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:underline"
+      >
+        {benefit.link.text}
+        <ExternalLink className="h-3 w-3" />
+      </a>
+    </div>
   );
 };
 
