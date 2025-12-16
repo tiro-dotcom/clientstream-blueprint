@@ -81,6 +81,14 @@ const Projects = () => {
           {/* Projects Grid */}
           <section className="py-16 lg:py-24">
             <div className="container mx-auto px-4 lg:px-8">
+              <header className="text-center max-w-3xl mx-auto mb-12">
+                <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
+                  These Are the Types of Projects We Offer
+                </h2>
+                <p className="text-muted-foreground">
+                  From intelligent chatbots to automated lead generation systems, we deliver custom AI solutions tailored to your business needs.
+                </p>
+              </header>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
                   <article
