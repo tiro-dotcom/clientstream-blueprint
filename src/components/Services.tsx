@@ -92,30 +92,20 @@ const ServiceItem = ({ service, index }: { service: typeof services[0]; index: n
       </p>
 
       {/* Video */}
-      {service.hasVideo && (
-        <figure className="rounded-lg aspect-video mb-6 overflow-hidden border border-border/30">
-          {service.videoSrc ? (
-            <video
-              className="w-full h-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              aria-label={`${service.title} demo video`}
-            >
-              <source src={service.videoSrc} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          ) : (
-            <div className="bg-muted/50 w-full h-full flex items-center justify-center">
-              <div className="text-center text-muted-foreground">
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-2" aria-hidden="true">
-                  <div className="w-0 h-0 border-t-6 border-t-transparent border-l-8 border-l-primary border-b-6 border-b-transparent ml-1" />
-                </div>
-                <p className="text-sm">Video Demo</p>
-              </div>
-            </div>
-          )}
+      {service.hasVideo && service.videoSrc && (
+        <figure className="rounded-lg aspect-video mb-6 overflow-hidden border border-border/30 bg-muted/30">
+          <video
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            aria-label={`${service.title} demo video`}
+          >
+            <source src={service.videoSrc} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </figure>
       )}
 
