@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Send } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navLinks = [
     { href: "/#services", label: "Services" },
@@ -13,6 +15,33 @@ const Navbar = () => {
     { href: "/#contact", label: "Contact" },
     { href: "/projects", label: "Projects" },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Check if it's a hash link on the home page
+    if (href.startsWith("/#")) {
+      e.preventDefault();
+      const sectionId = href.substring(2); // Remove "/#"
+      
+      // If we're not on the home page, navigate there first
+      if (location.pathname !== "/") {
+        navigate("/");
+        // Wait for navigation then scroll
+        setTimeout(() => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      } else {
+        // We're already on home page, just scroll
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+      setIsOpen(false);
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
@@ -33,6 +62,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
@@ -64,8 +94,8 @@ const Navbar = () => {
                 <Link
                   key={link.href}
                   to={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                  onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                 </Link>
